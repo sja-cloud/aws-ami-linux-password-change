@@ -5,7 +5,7 @@
             "region": "us-east-1",
             "source_ami_filter": {
                 "filters": {
-                    "name": "RHEL-8",
+                    "name": "*RHEL-8*",
                     "virtualization-type": "hvm",
                     "root-device-type": "ebs"
                 },
