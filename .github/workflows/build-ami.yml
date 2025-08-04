@@ -28,7 +28,7 @@ jobs:
 
       - name: Build AMI
         run: |
-          packer build your-packer-template.json
+          packer packer-template.json
 
       - name: Notify Success
         run: |
