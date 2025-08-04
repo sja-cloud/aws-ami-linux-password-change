@@ -1,1 +1,30 @@
-// test
+{
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "region": "us-east-1",
+            "source_ami_filter": {
+                "filters": {
+                    "name": "RHEL-8",
+                    "virtualization-type": "hvm",
+                    "root-device-type": "ebs"
+                },
+                "owners": ["309956199498"],
+                "most_recent": true
+            },
+            "instance_type": "t2.micro",
+            "ssh-username": "ec2-user",
+            "ami-name": "custom-rhel-{{timestamp}}"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/update-password-policy.sh"
+        },
+        {
+            "type": "shell",
+            "script":"scripts/ssh-hardening.sh"
+        }
+    ]
+}

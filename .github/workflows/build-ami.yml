@@ -1,1 +1,14 @@
-# test
+name: Build RHEL AMI
+
+on: 
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v3
+
+            - name: install packer
+              run: |
